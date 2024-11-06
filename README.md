@@ -52,3 +52,6 @@ This repository contains the backend code for a Task Management application, bui
 - Integration with the frontend part of the application.
 - Additional filtering options.
 - User authentication and authorization
+
+### Contributing
+Feel free to submit issues and pull requests. Contributions are welcome!
