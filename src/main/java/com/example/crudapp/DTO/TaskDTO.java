@@ -5,6 +5,7 @@ import com.example.crudapp.model.TaskFile;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 public class TaskDTO {
     private Long id;
@@ -13,19 +14,9 @@ public class TaskDTO {
     private Task.Status status;
     private Date dueDate;
     private Task.Priority priority;
-    private List<TaskFile> files;
+    private Map<Long, String> taskFiles;
 
     public TaskDTO() {
-    }
-
-    public TaskDTO(Long id, String title, String description, Task.Status status, Date dueDate, Task.Priority priority, String fileName, String fileType, byte[] fileData) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.status = status;
-        this.dueDate = dueDate;
-        this.priority = priority;
-
     }
 
     public Long getId() {
@@ -76,11 +67,11 @@ public class TaskDTO {
         this.priority = priority;
     }
 
-    public List<TaskFile> getFiles() {
-        return files;
+    public Map<Long, String> getTaskFiles() {
+        return taskFiles;
     }
 
-    public void setFiles(List<TaskFile> files) {
-        this.files = files;
+    public void setTaskFiles(Map<Long, String> taskFiles) {
+        this.taskFiles = taskFiles;
     }
 }

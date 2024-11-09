@@ -77,10 +77,10 @@ public class TaskService {
 
 
     public List<Task> searchTasks(String query, String status, String priority) {
-        Specification<Task> specification = Specification.where(TaskSpecification.hasStatus(status))
-                .and(TaskSpecification.hasPriority(priority))
-                .and(TaskSpecification.generalSearch(query));
-//        return taskRepository.findByTitleOOrDescription(query);
+        Specification<Task> specification = Specification
+                                                .where(TaskSpecification.hasStatus(status))
+                                                .and(TaskSpecification.hasPriority(priority))
+                                                .and(TaskSpecification.generalSearch(query));
 
         return taskRepository.findAll(specification);
     }

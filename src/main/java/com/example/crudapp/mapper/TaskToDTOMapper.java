@@ -2,8 +2,14 @@ package com.example.crudapp.mapper;
 
 import com.example.crudapp.DTO.TaskDTO;
 import com.example.crudapp.model.Task;
+import com.example.crudapp.model.TaskFile;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class TaskToDTOMapper {
+    private TaskToDTOMapper() {}
+
     public static TaskDTO mapToDTO(Task task) {
         TaskDTO taskDTO = new TaskDTO();
         taskDTO.setId(task.getId());
@@ -14,7 +20,11 @@ public class TaskToDTOMapper {
         taskDTO.setTitle(task.getTitle());
 
         try {
-            taskDTO.setFiles(task.getTaskFiles());
+            Map<Long, String> taskFiles = new HashMap<>();
+            for (TaskFile file: task.getTaskFiles()) {
+                taskFiles.put(file.getId(), file.getFileName());
+            }
+            taskDTO.setTaskFiles(taskFiles);
         } catch (Exception e) {
             e.printStackTrace();
         }
